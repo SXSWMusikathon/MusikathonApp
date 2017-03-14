@@ -3,20 +3,18 @@ import logo from './logo.svg';
 import './App.css';
 import Appbar from 'muicss/lib/react/appbar';
 import Button from 'muicss/lib/react/button';
+import HeaderBar from './components/HeaderBar';
 
 class App extends Component {
+  props: {
+	children: HTMLElement
+  };
+
   render() {
     return (
       <div className="App">
-	  <Appbar> </Appbar>
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-          <Button color="primary">button</Button>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+	  <HeaderBar />
+	  { this.props.children}
       </div>
     );
   }
