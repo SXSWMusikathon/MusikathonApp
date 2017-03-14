@@ -17,20 +17,26 @@ class HeaderBar extends Component {
 	const rightAlign = { textAlign: 'right'};
 	const middleAlign = { verticalAlign: 'middle'};
 	return(
-		<Appbar> 
-		  <table width="100%">
-			<tbody>
-			  <tr style={middleAlign}>
-				<td className="mui--appbar-height mui--pull-left"> 
+	  <Appbar> 
+		<table width="100%">
+		  <tbody>
+			<tr style={middleAlign}>
+			  <td className="mui--appbar-height mui--pull-left"> 
 				<Link to="/home" >Home Page </Link>
-				</td>
-				<td className="mui--appbar-height mui--pull-right"> 
+			  </td>
+			  <td className="mui--appbar-height mui--pull-right"> 
+				<Link to="/sign-in" > Sign In </Link>
+			  </td>
+			  <td className="mui--appbar-height mui--pull-right"> 
+				<Link to="/sign-up" > Sign Up </Link>
+			  </td>
+			  <td className="mui--appbar-height mui--pull-right"> 
 				<Link to="/competitions" >Competitions</Link>
-				</td>
-			  </tr>
-			</tbody>
-		  </table>
-		</Appbar>
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+	  </Appbar>
 	)
   }
 }
