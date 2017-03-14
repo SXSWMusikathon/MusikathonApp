@@ -7,7 +7,7 @@ import HeaderBar from './../components/HeaderBar';
 
 class App extends Component {
   props: {
-	children: HTMLElement
+	  children: HTMLElement
   };
 
   render() {
