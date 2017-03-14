@@ -1,0 +1,10 @@
+.divider-line {
+  width: 25%;
+  border-bottom: 2px  white solid;
+}
+
+.jumbotron-container{ 
+  background-color: #3d4045;
+  height: 40vh;
+  color: white;
+}

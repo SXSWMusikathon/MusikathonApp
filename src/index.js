@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, browserHistory} from 'react-router';
-import CompetitionListPage from './CompetitionListPage';
-import HomePage from './HomePage';
-import App from './App';
+import CompetitionListPage from './containers/CompetitionListPage';
+import HomePage from './containers/HomePage';
+import App from './containers/App';
 import './index.css';
 
 ReactDOM.render((
