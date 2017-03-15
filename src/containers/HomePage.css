@@ -9,6 +9,7 @@
   padding: 30px;
   background-color: #3d4045;
   height: 43vh;
+  min-height: fit-content;
   color: white;
   text-align: center;
 }
