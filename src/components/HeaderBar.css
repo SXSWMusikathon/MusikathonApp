@@ -1,7 +1,10 @@
-.mui-appbar{
-    background-color: #47494d !important;
-	text-color: #fff;
-	a {
-	  color: #fff;
-	}
+.header-bar-container{
+  background-color: #47494d !important;
+  color: #fff;
+}
+
+.nav-item {
+  font-size: medium;
+  color: #fff;
+  padding-left: 1em;
 }

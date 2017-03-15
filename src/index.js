@@ -7,8 +7,10 @@ import SignInPage from './containers/SignInPage';
 import HomePage from './containers/HomePage';
 import SignUpPage from './containers/SignUpPage';
 import App from './containers/App';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 import './index.css';
 
+injectTapEventPlugin();
 ReactDOM.render((
   <Router history={browserHistory}>
 	<Route path="/" component={App}>
