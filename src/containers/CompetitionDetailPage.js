@@ -19,7 +19,7 @@ export default class CompetitionDetailPage extends Component {
 
   render() {
 	return (
-    <div>
+    <div className = "details-background">
       <div> Detail { this.props.params.competitionId } </div>
       <div> test</div>
     </div>
