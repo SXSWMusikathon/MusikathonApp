@@ -4,6 +4,8 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
 import BrowserHistory from 'react-router';
+import './SignInPage.css';
+
 const accountTypes = {
   PARTICIPANT: "PARTICIPANT",
   HOST: "HOST"
@@ -42,7 +44,7 @@ export default class SignInPage extends Component {
 	}
 	return (
 	  <div style={container}>
-		<h2> Sign In </h2>
+		<h2 className="sign-in-header"> Sign In </h2>
 		<SelectField
 		  value={this.state.accountType}
 		  onChange={this.handleChange}

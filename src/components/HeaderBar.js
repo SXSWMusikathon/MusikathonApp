@@ -24,25 +24,24 @@ class HeaderBar extends Component {
 	};
 
 	const logoStyle = {
-		width: "auto",
 		height:"100%"
 	}
 
 	return(
 	  <Toolbar className="header-bar-container">
-		<ToolbarGroup firstChild={true}>
-		  <Link className="nav-item" to="/home" style={logoStyle}>
-				<img src={logo} alt="logo" style={logoStyle}/>
-			</Link>
-		</ToolbarGroup>
-		<ToolbarGroup firstChild={true}>
-		  <Link className="nav-item" to="/competitions"> Competitions </Link>
-		  <Link className="nav-item" to="/sign-in"> Log in </Link>
-		  <Link className="nav-item" to="/sign-up"> Sign up </Link>
-		  <RaisedButton style={btnStyle} label="Vote" primary={true} onClick={this.handleOpen} />
-		  <AuthDialog ref="dialog"/>
+			<ToolbarGroup className = "header-bar-logo" firstChild={true}>
+				<Link className="nav-item" to="/home" style={logoStyle}>
+					<img src={logo} alt="logo" style={logoStyle}/>
+				</Link>
+			</ToolbarGroup>
+			<ToolbarGroup firstChild={true}>
+				<Link className="nav-item" to="/competitions"> Competitions </Link>
+				<Link className="nav-item" to="/sign-in"> Log in </Link>
+				<Link className="nav-item" to="/sign-up"> Sign up </Link>
+				<RaisedButton style={btnStyle} label="Vote" primary={true} onClick={this.handleOpen} />
+				<AuthDialog ref="dialog"/>
 
-		</ToolbarGroup>
+			</ToolbarGroup>
 	  </Toolbar>
 	)
   }

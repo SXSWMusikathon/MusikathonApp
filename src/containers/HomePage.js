@@ -13,18 +13,38 @@ export default class HomePage extends Component {
 
 	renderCompetitions() {
 		const competitions = [
-			{ name: "1" },
-			{ name: "2" },
-			{ name: "3" },
-			{ name: "4" },
-			{ name: "5" },
-			{ name: "6" },
-			{ name: "7" },
-			{ name: "8" }
+			{ songTitle: "Song Title 1",
+				artistName:"Artist 1",
+				contestDescription:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi. Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque. Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio."},
+			{ songTitle: "Song Title 2",
+				artistName:"Artist 2",
+				contestDescription:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi. Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque. Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio." },
+			{ songTitle: "Song Title 3",
+				artistName:"Artist 3",
+				contestDescription:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi. Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque. Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio." },
+			{ songTitle: "Song Title 4",
+				artistName:"Artist 4",
+				contestDescription:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi. Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque. Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio." },
+			{ songTitle: "Song Title 5",
+				artistName:"Artist 5",
+				contestDescription:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi. Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque. Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio." },
+			{ songTitle: "Song Title 6",
+				artistName:"Artist 6",
+				contestDescription:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi. Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque. Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio." },
+			{ songTitle: "Song Title 7",
+				artistName:"Artist 7",
+				contestDescription:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi. Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque. Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio." },
+			{ songTitle: "Song Title 8",
+				artistName:"Artist 8",
+				contestDescription:"Lorem ipsum dolor sit amet, e lobortis odio." }
 
 		];
 
-		const competitionCards = competitions.map(each => <CompetitionCard  name={each.name} />);
+		const competitionCards = competitions.map(each => <CompetitionCard  
+															songTitle={each.songTitle} 
+															artistName={each.artistName}
+															contestDescription={each.contestDescription}
+														  />);
 		return competitionCards;
 	}
 
