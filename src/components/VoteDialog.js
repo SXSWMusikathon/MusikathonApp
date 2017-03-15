@@ -46,7 +46,7 @@ export default class VoteDialog extends Component {
 
 	return (
 	  <Dialog
-		title="Dialog With Actions"
+		title="Vote"
 		actions={actions}
 		modal={false}
 		open={this.state.open}
