@@ -6,6 +6,10 @@ body {
   height: 100%;
 }
 
+body {
+ font-family: "Atlas Grotesk", sans-serif !important;
+}
+
 html,
 body,
 input,
