@@ -24,6 +24,7 @@
   */
   width : 300px;
   height: 455px;
+  position:relative;
 }
 
 .competition-flex-container{
@@ -57,8 +58,9 @@
 }
 
 .competition-card-actions{
-  float: right;
-  align-self:flex-end;
+    position:absolute !important;
+    bottom:0;
+    right:0;
 }
 
 .logo-action{

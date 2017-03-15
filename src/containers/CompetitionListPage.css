@@ -1,0 +1,11 @@
+.table-small{
+    width:10% !important;
+}
+.table-large{
+    width:70% !important;
+}
+
+.competition-table{
+    height:""; 
+    width: 100% !important;
+}
