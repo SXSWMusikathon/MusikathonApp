@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { CLIENT_ID } from './../constants/Config';
 import { GridTile } from 'material-ui/GridList';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import RaisedButton from 'material-ui/RaisedButton'
 
 import './Player.css';
 import testImage from './../images/SongArtTest.jpg';
@@ -86,8 +87,9 @@ export default class Player extends Component{
 		  </CardMedia>
 
 		</Card>
-	  </div>
-	)
-  }
-
+		<div className="vote-button">
+			<RaisedButton primary={true}> Select this</RaisedButton>
+		</div>
+	</div>
+	)}
 }
