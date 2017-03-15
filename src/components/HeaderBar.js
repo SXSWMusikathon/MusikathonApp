@@ -5,6 +5,7 @@ import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui
 import RaisedButton from 'material-ui/RaisedButton';
 import AuthDialog from './AuthDialog';
 import "./HeaderBar.css";
+import logo from "../images/LogoWithWords.png"
 
 class HeaderBar extends Component {
 
@@ -22,10 +23,17 @@ class HeaderBar extends Component {
 	  fontSize: "large"
 	};
 
+	const logoStyle = {
+		width: "auto",
+		height:"100%"
+	}
+
 	return(
 	  <Toolbar className="header-bar-container">
 		<ToolbarGroup firstChild={true}>
-		  <Link className="nav-item" to="/home"> Home </Link>
+		  <Link className="nav-item" to="/home" style={logoStyle}>
+				<img src={logo} alt="logo" style={logoStyle}/>
+			</Link>
 		</ToolbarGroup>
 		<ToolbarGroup firstChild={true}>
 		  <Link className="nav-item" to="/competitions"> Competitions </Link>

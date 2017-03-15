@@ -8,21 +8,26 @@
 .jumbotron-container{ 
   padding: 30px;
   background-color: #3d4045;
-  height: 40vh;
+  height: 43vh;
   color: white;
   text-align: center;
 }
 
 .competition-card{
+  margin: 0 calc((100% - 300px * 4) / 8);
   margin-top: 20px;
   margin-bottom: 20px;
+  /*
   margin-left: 10px;
   margin-right:10px;
-  width : 280px;
+  */
+  width : 300px;
   height: 455px;
 }
 
 .competition-flex-container{
+  margin: 0 auto;
+  width:90%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -31,6 +36,8 @@
 .logos-flex-container{
   display: flex;
   justify-content: space-around;
+  margin:0 auto;
+  width:80%
 }
 
 .competition-card-image{
@@ -50,4 +57,21 @@
 
 .competition-card-actions{
   float: right;
+  align-self:flex-end;
+}
+
+.logo-action{
+  width:200px;
+  margin:0 auto;
+}
+
+.logo-explanation{
+  width:250px;
+  margin:0 auto;
+  color:rgb(179, 179, 179);
+}
+
+
+.logo-img{
+  margin-bottom: 15px;
 }
