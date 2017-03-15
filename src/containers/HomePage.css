@@ -18,8 +18,8 @@
   margin-bottom: 20px;
   margin-left: 10px;
   margin-right:10px;
-  width : 260px;
-  height: 445px;
+  width : 280px;
+  height: 455px;
 }
 
 .competition-flex-container{
@@ -31,4 +31,23 @@
 .logos-flex-container{
   display: flex;
   justify-content: space-around;
+}
+
+.competition-card-image{
+  width :260;
+  height: 145;
+}
+
+.competition-card-text{
+  padding-top: 8px !important;
+  padding-bottom:8px !important;
+}
+
+.competition-card-title{
+  padding-top: 8px !important;
+  padding-bottom:8px !important;
+}
+
+.competition-card-actions{
+  float: right;
 }
