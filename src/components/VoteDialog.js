@@ -39,8 +39,12 @@ export default class VoteDialog extends Component {
   renderPlayers() {
 	if (!this.state.tracks.length) {
 	  return (
-		<div className="player-flex-container"> 
-		  <CircularProgress size={80} thickness={5} />
+		<div>
+		  <h2> Loading new matchup ... </h2>
+		  <div className="player-flex-container"> 
+			<CircularProgress size={80} thickness={5}>
+			</CircularProgress>
+		  </div>
 		</div>
 	  );
 	} else {
@@ -76,7 +80,12 @@ export default class VoteDialog extends Component {
 
   handleSelectSong(playerId) {
 	console.log(playerId);
-
+	this.setState({
+	  tracks: []
+	}); 
+	setTimeout(function() { 
+	  this._fetchContest();
+	}.bind(this), 3000);
   }
 
   handleClose = () => {
@@ -101,13 +110,12 @@ export default class VoteDialog extends Component {
 
 	return (
 	  <Dialog
-		title="Vote"
+		title="Vote for contest submissions"
 		actions={actions}
 		modal={false}
 		open={this.state.open}
 		onRequestClose={this.handleClose}
 	  >
-		The actions in this window were passed in as an array of React objects.
 		{ this.renderPlayers()}
 
 	  </Dialog>

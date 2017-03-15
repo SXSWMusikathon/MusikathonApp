@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import TextField from 'material-ui/TextField';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
 import BrowserHistory from 'react-router';
+import CircularProgress from 'material-ui/CircularProgress';
 import './SignInPage.css';
 
 const accountTypes = {
@@ -14,12 +15,13 @@ const accountTypes = {
 export default class SignInPage extends Component {
 
   static contextTypes =  {
-	router: React.PropTypes.object
+	router: PropTypes.object
   }
   constructor(props) {
 	super(props);
 	this.state = {
-	  accountType: 1
+	  accountType: accountTypes.PARTICIPANT,
+	  showLoadingView: false
 	};
 	this.onSignIn = this.onSignIn.bind(this);
 	this.onSignUp = this.onSignUp.bind(this);
@@ -27,31 +29,43 @@ export default class SignInPage extends Component {
 
   handleChange = (event, index, value) => this.setState({accountType: value});
 
+  renderLoadingView() {
+	return(
+	  <div className="player-flex-container"> 
+		<CircularProgress size={80} thickness={5}>
+		</CircularProgress>
+	  </div>
+	);
+  }
+
   onSignIn() {
-	// this.context.router.push('/competitions');
+	if (this.state.accountType == accountTypes.HOST ){
+	  this.setState({showLoadingView: true});
+	  setTimeout( ()=>{ 
+		this.context.router.push('/host-profile'); 
+	  }, 2000);
+	} else {
+	  this.setState({showLoadingView: true});
+	  setTimeout( ()=>{ 
+		this.context.router.push('/profile'); 
+	  }, 2000);
+	}
   }
 
   onSignUp() {
 	this.context.router.push('/sign-up');
   }
 
-
-
-  render() {
-	const container = {
-	  padding: "3em 2em",
-	  textAlign: "center"
-	}
-	return (
-	  <div style={container}>
-		<h2 className="sign-in-header"> Sign In </h2>
+  renderForm(){
+	return(
+	  <div>
 		<SelectField
 		  value={this.state.accountType}
 		  onChange={this.handleChange}
 		  autoWidth={true}
 		>
-		  <MenuItem value={1} primaryText="I'm a participant" />
-		  <MenuItem value={2} primaryText="I'm a host" />
+		  <MenuItem value={accountTypes.PARTICIPANT} primaryText="I'm a participant" />
+		  <MenuItem value={accountTypes.HOST} primaryText="I'm a host" />
 		</SelectField>
 		<br />
 		<TextField
@@ -59,6 +73,7 @@ export default class SignInPage extends Component {
 		/><br />
 		<TextField
 		  hintText="Password"
+		  type="password"
 		/><br />
 
 	  <RaisedButton 
@@ -71,6 +86,23 @@ export default class SignInPage extends Component {
 		label="Sign Up" 
 		primary={false}
 	  />
+	</div>
+	)
+  }
+
+
+
+  render() {
+	const container = {
+	  padding: "3em 2em",
+	  textAlign: "center"
+	}
+	return (
+	  <div style={container}>
+		<h2 className="sign-in-header"> Sign In </h2>
+		<br />
+		{ !this.state.showLoadingView && this.renderForm()}
+		{ this.state.showLoadingView && this.renderLoadingView()}
 	</div>
 	);
   }

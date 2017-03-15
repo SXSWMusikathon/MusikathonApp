@@ -3,6 +3,41 @@ const bodyParser = require('body-parser');
 const mongodb = require('mongodb')
 const  mongoDbQueue = require('mongodb-queue')
 
+let competitions = [
+  { songTitle: "Contest Title 1",
+	artistName:"Artist 1",
+	imgUrl: "https://d3us2i0tqwa7m7.cloudfront.net/channel-banners/5859feebfbf20aac65002051/1482293004540_res_1600xundefined.jpg?v=1482293004540",
+	contestDescription:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi. Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque. Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio."},
+  { songTitle: "Contest Title 2",
+	artistName:"Artist 2",
+	imgUrl: "https://d3us2i0tqwa7m7.cloudfront.net/channel-banners/5759a7d3ba600f9072004b98/1465493618858_res_1600xundefined.jpg?v=1465493618858",
+	contestDescription:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi. Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque. Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio." },
+  { songTitle: "Contest Title 3",
+	artistName:"Artist 3",
+	imgUrl: "https://d3us2i0tqwa7m7.cloudfront.net/channel-banners/572bb189d5978b05150004d1/1462481395314_res_1600xundefined.jpg?v=1462481395314",
+	contestDescription:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi. Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque. Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio." },
+  { songTitle: "Contest Title 4",
+	artistName:"Artist 4",
+	imgUrl: "https://d3us2i0tqwa7m7.cloudfront.net/channel-banners/57154fa5a419b16074000724/1461014557278_res_1600xundefined.jpg?v=1461014557278",
+	contestDescription:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi. Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque. Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio." },
+  { songTitle: "Contest Title 5",
+	imgUrl: "https://d3us2i0tqwa7m7.cloudfront.net/channel-banners/57bf64382b0c24a53c001c3a/1472164357394_res_1600xundefined.jpg?v=1472164357394",
+	artistName:"Artist 5",
+	contestDescription:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi. Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque. Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio." },
+  { songTitle: "Contest Title 6",
+	artistName:"Artist 6",
+	imgUrl: "https://d3us2i0tqwa7m7.cloudfront.net/channel-banners/57bdb38d81fbd59d4c000908/1474312077644_res_1600xundefined.jpg?v=1474312077644",
+	contestDescription:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi. Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque. Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio." },
+  { songTitle: "Contest Title 7",
+	artistName:"Artist 7",
+	imgUrl: "https://d3us2i0tqwa7m7.cloudfront.net/channel-banners/578d435a80df7e9f14000a71/1468875912775_res_1600xundefined.jpg?v=1468875912775",
+	contestDescription:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi. Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque. Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio." },
+  { songTitle: "Contest Title 8",
+	artistName:"Artist 8",
+	imgUrl: "https://d3us2i0tqwa7m7.cloudfront.net/channel-banners/55a94b778be5e56d1a000063/1437158363008_res_1600xundefined.jpg?v=1437158363008",
+	contestDescription:"Lorem ipsum dolor sit amet, e lobortis odio." }
+
+];
 const PORT = 3001;
 const con = 'mongodb://localhost:27017/test-musik';
 
@@ -11,7 +46,7 @@ const app = express();
 let queue = null;
 
 mongodb.MongoClient.connect(con, (err, db) => {
-  queue = mongoDbQueue(db, 'contest');
+  queue = mongoDbQueue(db, 'contestv2');
 })
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -19,23 +54,14 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
 app.listen(PORT, ()=>{
   console.log("Listening on 3000");
 });
 
 handleGetCompetitions = (req,res) => {
-  queue.get((err,msg)=> {
-	if (msg) {
-	  console.log(msg.id);
-	  console.log(msg.payload);
-	  queue.ack(msg.ack, function(err, id) {
-		console.log("Acked");
-	  });
-	}
-  });
-  return res.json({word: "hello"});
+  return res.status(200).json({data: competitions});
 }
 
 handleGetCompetitionDetail = (req, res) => {
@@ -71,65 +97,19 @@ _generatePermutations = (submissions) =>  {
 }
 
 
-const competitions = [
-{
-  artImage: "../images/SongArtTest.jpg",
-  songName:"My Song 1",
-  artistName:"Artist 1",
-  details:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi. Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque. Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi. Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque. Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.",
-  soundCloudLink:"https://soundcloud.com/ujico/lullaby",
-  prizes:["Prize 1","Prize 2","Prize 3"],
-  stemsLink:"https://puu.sh/uJAa3/9a94e2da7e.png",
-  startDate:"February 1st, 2017",
-  endDate:"March 2nd, 2017",
-  winnerAnnounced:"March 10th, 2017"
-},
-{
-  artImage: "../images/SongArtTest.jpg",
-  songName:"My Song 1",
-  artistName:"Artist 1",
-  details:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi. Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque. Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi. Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque. Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.",
-  soundCloudLink:"https://soundcloud.com/ujico/lullaby",
-  prizes:["Prize 1","Prize 2","Prize 3"],
-  stemsLink:"https://puu.sh/uJAa3/9a94e2da7e.png",
-  startDate:"February 1st, 2017",
-  endDate:"March 2nd, 2017",
-  winnerAnnounced:"March 10th, 2017"
-},
-{
-  artImage: "../images/SongArtTest.jpg",
-  songName:"My Song 1",
-  artistName:"Artist 1",
-  details:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi. Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque. Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi. Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque. Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.",
-  soundCloudLink:"https://soundcloud.com/ujico/lullaby",
-  prizes:["Prize 1","Prize 2","Prize 3"],
-  stemsLink:"https://puu.sh/uJAa3/9a94e2da7e.png",
-  startDate:"February 1st, 2017",
-  endDate:"March 2nd, 2017",
-  winnerAnnounced:"March 10th, 2017"
-},
-{
-  artImage: "../images/SongArtTest.jpg",
-  songName:"My Song 1",
-  artistName:"Artist 1",
-  details:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi. Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque. Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi. Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque. Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.",
-  soundCloudLink:"https://soundcloud.com/ujico/lullaby",
-  prizes:["Prize 1","Prize 2","Prize 3"],
-  stemsLink:"https://puu.sh/uJAa3/9a94e2da7e.png",
-  startDate:"February 1st, 2017",
-  endDate:"March 2nd, 2017",
-  winnerAnnounced:"March 10th, 2017"
-}
-];
-
 handleSendContest = (req,res) => {
   const submissions = [
 	{ trackId: '298686031', userId: 'sdsds' },
-	{ trackId: '298686031', userId: 'sdsdsds' },
 	{trackId: '297628304', userId: 'sdsdsds'},
 	{trackId: '297095901', userId: '23232dsds'},
 	{trackId: '296490805', userId: 'sdsdsds'},
-	{trackId: '298437665', userId: '23232dsds'}
+	{trackId: '298437665', userId: '23232dsds'},
+	{trackId: '298517212', userId: '23232dsds'},
+	{trackId: '295444129', userId: '23232dsds'},
+	{trackId: '298223006', userId: '23232dsds'},
+	{trackId: '298437665', userId: '23232dsds'},
+	{trackId: '294579563', userId: '23232dsds'},
+	{trackId: '294751486', userId: '23232dsds'}
   ];
 
   const contests = _generatePermutations(submissions);
@@ -143,7 +123,16 @@ handleSendContest = (req,res) => {
 
   return res.status(200).json({data: contests});
 }
+
+
+handleNewContest = (req,res) => {
+  const data = req.body;
+  competitions.push(data);
+  return res.status(200);
+}
 app.get('/competitions', handleGetCompetitions);
 app.get('/competitions/:id', handleGetCompetitionDetail);
 app.get('/vote', handleGetVote);
 app.get('/add', handleSendContest);
+
+app.post('/competitions/new', handleNewContest);

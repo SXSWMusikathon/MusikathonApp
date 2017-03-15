@@ -48,9 +48,11 @@ export default class SignUpPage extends Component {
 		/><br />
 		<TextField
 		  hintText="Password"
+		  type="password"
 		/><br />
 		<TextField
 		  hintText="Confirm Password"
+		  type="password"
 		/><br />
 
 	  <RaisedButton 

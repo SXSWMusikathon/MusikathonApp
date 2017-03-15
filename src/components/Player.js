@@ -84,7 +84,14 @@ export default class Player extends Component{
 
 		</Card>
 		<div className="vote-button">
-			<RaisedButton primary={true}> Select this</RaisedButton>
+		  <RaisedButton 
+			primary={ playerId == "0"}
+			secondary={ playerId == "1"}
+			onClick={this.onSelectSong}
+			fullWidth={true}
+		  > 
+			Pick this remix { parseInt(playerId) + 1 }
+		  </RaisedButton>
 		</div>
 	</div>
 	)}

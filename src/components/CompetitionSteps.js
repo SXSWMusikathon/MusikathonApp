@@ -7,6 +7,7 @@ import {
 } from 'material-ui/Stepper';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
+import VoteDialog from './VoteDialog';
 
 /**
  * A basic vertical non-linear implementation
@@ -30,6 +31,10 @@ class VerticalNonLinear extends React.Component {
       this.setState({stepIndex: stepIndex - 1});
     }
   };
+
+  handleOpen = ()=>{
+	this.refs.dialog.handleOpen();
+  }
 
   renderStepActions(step) {
     return (
