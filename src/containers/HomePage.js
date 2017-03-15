@@ -33,23 +33,33 @@ export default class HomePage extends Component {
 			{
 				altName: "Download",
 				description: "download",
-				logo: download
+				logo: download,
+				action:"Download The Stems!",
+				explanation:"Browse through our current remixes and find one you like. Download the stems and make your remix!"
 			},
 			{
 				altName: "vote",
 				description: "Vote",
-				logo: vote
+				logo: vote,
+				action:"Vote On Your Peers!",
+				explanation:"Put remixes to the test! Compare remixes to help us the quality of each remix."
 			},
 			{
 				altName: "Upload",
 				description: "Upload",
-				logo: upload
+				logo: upload,
+				action:"Upload Your Remix!",
+				explanation:"Finally submit a remix of your own! Your remix will be then be compared to other remixes entered into the same competition."
 			}
 		];
 
 		const logos = logoList.map(each => {
 			return (
-				<img src={each.logo} alt={each.altName} />
+				<div >
+					<img className="logo-img" src={each.logo} alt={each.altName}/>
+					<h3 className="logo-action">{each.action}</h3>
+					<p className="logo-explanation">{each.explanation}</p>
+				</div>
 			);
 		});
 
