@@ -1,0 +1,13 @@
+.player {
+  width: 45%;
+}
+.player-card {
+  width: 100%;
+}
+.player-flex-container{
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
