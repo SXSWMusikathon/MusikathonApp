@@ -14,6 +14,7 @@ export default class Player extends Component{
 	  currentPlaying: false
 	};
 	this.onTogglePlay = this.onTogglePlay.bind(this);
+	this.onSelectSong = this.onSelectSong.bind(this);
   }
 
   formatStreamUrl(trackId) {
@@ -27,6 +28,10 @@ export default class Player extends Component{
 	  this.props.onTogglePlay(this.props.playerId);
 	  this._startAudio();
 	}
+  }
+
+  onSelectSong(){
+	this.props.selectSong(this.props.playerId);
   }
 
   _pauseAudio(){
@@ -54,7 +59,11 @@ export default class Player extends Component{
 
 	return (
 	  <div className="player">
-		<audio id={audioId} ref={trackId} src={this.formatStreamUrl(trackId)} />
+		<audio 
+		  id={audioId} 
+		  ref={trackId} 
+		  src={this.formatStreamUrl(trackId)} 
+		/>
 		<Card className="player-card">
 		  <CardMedia className="competition-card-image">
 			<img src={testImage}/>
@@ -65,8 +74,7 @@ export default class Player extends Component{
 			  <button onClick={this.onTogglePlay}>
 				{ this.state.currentPlaying ? "Pause" : "Play" }
 			  </button>
-			  <button> Select this</button>
-
+			  <button onClick={this.onSelectSong}> Select this</button>
 			</CardActions>
 		  </CardMedia>
 

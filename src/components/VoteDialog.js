@@ -13,15 +13,21 @@ export default class VoteDialog extends Component {
 	};
 
 	this.handleTogglePlay = this.handleTogglePlay.bind(this);
+	this.handleSelectSong= this.handleSelectSong.bind(this);
   }
 
   handleOpen = () => {
 	this.setState({open: true});
   };
 
-  handleTogglePlay = (playerId)=> {
+  handleTogglePlay(playerId) {
 	let stopId = playerId == "0" ? "1" : "0";
 	this.refs[stopId]._pauseAudio();
+  }
+
+  handleSelectSong(playerId) {
+	console.log(playerId);
+
   }
 
   handleClose = () => {
@@ -60,6 +66,7 @@ export default class VoteDialog extends Component {
 			playerId="0"
 			ref="0"
 			onTogglePlay={this.handleTogglePlay}
+			selectSong={this.handleSelectSong}
 		  />
 		  <Player 
 			isPlaying={this.state.isAudioPlaying}
@@ -67,6 +74,7 @@ export default class VoteDialog extends Component {
 			playerId="1"
 			ref="1"
 			onTogglePlay={this.handleTogglePlay}
+			selectSong={this.handleSelectSong}
 		  />
 		</div>
 	  </Dialog>
