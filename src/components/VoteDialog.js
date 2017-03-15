@@ -4,6 +4,7 @@ import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import {GridList, GridTile} from 'material-ui/GridList';
 import Player from './Player';
+import axios from 'axios';
 
 export default class VoteDialog extends Component {
   constructor(props){
@@ -11,9 +12,21 @@ export default class VoteDialog extends Component {
 	this.state = {
 	  open: false
 	};
-
+	this._fetchContest();
 	this.handleTogglePlay = this.handleTogglePlay.bind(this);
 	this.handleSelectSong= this.handleSelectSong.bind(this);
+  }
+
+  _fetchContest(){
+	const URL = "http://localhost:3001/vote";
+	axios({
+	  url: URL,
+	  method: 'get',
+	  responseType: 'json'
+	})
+	.then((r)=> {
+	  console.log(r);
+	});
   }
 
   handleOpen = () => {
@@ -70,7 +83,7 @@ export default class VoteDialog extends Component {
 		  />
 		  <Player 
 			isPlaying={this.state.isAudioPlaying}
-			trackId="47580057"
+			trackId="298686031"
 			playerId="1"
 			ref="1"
 			onTogglePlay={this.handleTogglePlay}
