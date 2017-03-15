@@ -19,3 +19,8 @@
   padding-top: 10%;
   padding-left: 40%;
 }
+
+.vote-button{
+  text-align: center;
+  margin: 10px auto;
+}
