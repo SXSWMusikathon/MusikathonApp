@@ -80,10 +80,6 @@ export default class Player extends Component{
 				  >
 				  </a>
 				</div>
-			<CardActions className="competition-card-actions">
-			  <button onClick={this.onSelectSong}> Select this</button>
-
-			</CardActions>
 		  </CardMedia>
 
 		</Card>
