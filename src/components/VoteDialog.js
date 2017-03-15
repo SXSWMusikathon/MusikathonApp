@@ -5,12 +5,11 @@ import RaisedButton from 'material-ui/RaisedButton';
 import {GridList, GridTile} from 'material-ui/GridList';
 import Player from './Player';
 
-export default class AuthDialog extends Component {
+export default class VoteDialog extends Component {
   constructor(props){
 	super(props);
 	this.state = {
-	  open: false,
-	  isAudioPlaying: [false, false]
+	  open: false
 	};
 
 	this.handleTogglePlay = this.handleTogglePlay.bind(this);

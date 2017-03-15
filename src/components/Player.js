@@ -63,7 +63,10 @@ export default class Player extends Component{
 			  {/* <a href="#" title="Play video" className="play"></a> */}
 			  {/* https://codepen.io/stevenfabre/pen/DvBei */}
 			  <button onClick={this.onTogglePlay}>
+				{ this.state.currentPlaying ? "Pause" : "Play" }
 			  </button>
+			  <button> Select this</button>
+
 			</CardActions>
 		  </CardMedia>
 

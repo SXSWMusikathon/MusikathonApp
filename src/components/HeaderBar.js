@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import Container from 'muicss/lib/react/container';
 import { Link } from 'react-router';
-import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
+import VoteDialog from './VoteDialog';
+
 import RaisedButton from 'material-ui/RaisedButton';
-import AuthDialog from './AuthDialog';
-import "./HeaderBar.css";
+import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 import logo from "../images/LogoWithWords.png"
+import "./HeaderBar.css";
 
 class HeaderBar extends Component {
 
@@ -24,24 +25,24 @@ class HeaderBar extends Component {
 	};
 
 	const logoStyle = {
-		height:"100%"
+	  height:"100%"
 	}
 
 	return(
 	  <Toolbar className="header-bar-container">
-			<ToolbarGroup className = "header-bar-logo" firstChild={true}>
-				<Link className="nav-item" to="/home" style={logoStyle}>
-					<img src={logo} alt="logo" style={logoStyle}/>
-				</Link>
-			</ToolbarGroup>
-			<ToolbarGroup firstChild={true}>
-				<Link className="nav-item" to="/competitions"> Competitions </Link>
-				<Link className="nav-item" to="/sign-in"> Log in </Link>
-				<Link className="nav-item" to="/sign-up"> Sign up </Link>
-				<RaisedButton style={btnStyle} label="Vote" primary={true} onClick={this.handleOpen} />
-				<AuthDialog ref="dialog"/>
+		<ToolbarGroup className = "header-bar-logo" firstChild={true}>
+		  <Link className="nav-item" to="/home" style={logoStyle}>
+			<img src={logo} alt="logo" style={logoStyle}/>
+		  </Link>
+		</ToolbarGroup>
+		<ToolbarGroup firstChild={true}>
+		  <Link className="nav-item" to="/competitions"> Competitions </Link>
+		  <Link className="nav-item" to="/sign-in"> Log in </Link>
+		  <Link className="nav-item" to="/sign-up"> Sign up </Link>
+		  <RaisedButton style={btnStyle} label="Vote" primary={true} onClick={this.handleOpen} />
+		  <VoteDialog ref="dialog"/>
 
-			</ToolbarGroup>
+		</ToolbarGroup>
 	  </Toolbar>
 	)
   }
