@@ -9,6 +9,7 @@ import SignUpPage from './containers/SignUpPage';
 import App from './containers/App';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import './index.css';
+import './components/TogglePlayButton.css';
 
 injectTapEventPlugin();
 ReactDOM.render((

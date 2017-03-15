@@ -3,11 +3,19 @@
 }
 .player-card {
   width: 100%;
+  height:160px;
+  background-color: black !important;
 }
 .player-flex-container{
   margin: 0 auto;
   width: 100%;
+  height:200px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+}
+
+.give-room{
+  padding-top: 10%;
+  padding-left: 40%;
 }

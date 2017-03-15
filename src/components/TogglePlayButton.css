@@ -1,12 +1,12 @@
 
 .play {
-  display: block;
+  display: table-cell;
   width: 0;
   height: 0;
   border-top: 50px solid transparent;
   border-bottom: 50px solid transparent;
   border-left: 60px solid #2c3e50;
-  margin: 100px auto 50px auto;
+  margin: 150px auto 100px auto;
   position: relative;
   z-index: 1;
   transition: all 0.3s;

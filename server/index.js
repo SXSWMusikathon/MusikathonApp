@@ -51,7 +51,7 @@ handleGetVote = (req,res) => {
 	  console.log(msg.payload);
 	  queue.ack(msg.ack, function(err, id) {
 		data = msg.payload;
-		return res.status(200).json({ data: data});
+		return res.status(200).json(data);
 	  });
 	} else {
 	  return res.status(400).json({err: err});
@@ -64,7 +64,7 @@ _generatePermutations = (submissions) =>  {
   let contests = [];
   for (let i=0; i<submissions.length; i++) {
 	for (let j=i; j<submissions.length; j++) {
-	  contests.push(submissions[i],submissions[j]);
+	  contests.push([submissions[i],submissions[j]]);
 	}
   }
   return contests;
@@ -124,12 +124,12 @@ const competitions = [
 
 handleSendContest = (req,res) => {
   const submissions = [
-	{ trackId: '23232', userId: 'sdsds' },
-	{ trackId: '323232', userId: 'sdsdsds' },
-	{trackId: '232323', userId: 'sdsdsds'},
-	{trackId: '23232323', userId: '23232dsds'},
-	{trackId: '232323', userId: 'sdsdsds'},
-	{trackId: '23232323', userId: '23232dsds'}
+	{ trackId: '298686031', userId: 'sdsds' },
+	{ trackId: '298686031', userId: 'sdsdsds' },
+	{trackId: '297628304', userId: 'sdsdsds'},
+	{trackId: '297095901', userId: '23232dsds'},
+	{trackId: '296490805', userId: 'sdsdsds'},
+	{trackId: '298437665', userId: '23232dsds'}
   ];
 
   const contests = _generatePermutations(submissions);

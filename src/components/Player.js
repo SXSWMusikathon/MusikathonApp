@@ -56,7 +56,10 @@ export default class Player extends Component{
 	  trackId 
 	} = this.props;
 	const audioId = `audio_${trackId}`;
-
+	const giveStyle = {
+  	width: '',
+  	minWidth: ''
+	};
 	return (
 	  <div className="player">
 		<audio 
@@ -65,16 +68,20 @@ export default class Player extends Component{
 		  src={this.formatStreamUrl(trackId)} 
 		/>
 		<Card className="player-card">
-		  <CardMedia className="competition-card-image">
-			<img src={testImage}/>
+		  <CardMedia >
+				{/*<img src={testImage}/>*/}
+				<div className="give-room" style={giveStyle}>
+				  <a 
+					onClick={this.onTogglePlay} 
+					href="#" 
+					title="Play video " 
+					className={this.state.currentPlaying ? "play active" : "play"}
+				  >
+				  </a>
+				</div>
 			<CardActions className="competition-card-actions">
-			  {/* <FlatButton onClick={this.onPlay} label="Play" /> */}
-			  {/* <a href="#" title="Play video" className="play"></a> */}
-			  {/* https://codepen.io/stevenfabre/pen/DvBei */}
-			  <button onClick={this.onTogglePlay}>
-				{ this.state.currentPlaying ? "Pause" : "Play" }
-			  </button>
 			  <button onClick={this.onSelectSong}> Select this</button>
+
 			</CardActions>
 		  </CardMedia>
 
