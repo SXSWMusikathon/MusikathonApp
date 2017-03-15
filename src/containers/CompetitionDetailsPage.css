@@ -1,3 +1,54 @@
 .details-background{
+    color: white;
+    display: flex;
+}
+
+.details-container{
+    
+
+    width:76%;
+    margin:0 auto;
+
+}
+
+.competition-details-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width:400px;
+}
+
+.competition-details-art{
+    max-height: 300px;
+    max-width: 300px;
+}
+
+
+.competition-details-top{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.competition-details-title{
+    margin: 0px;
+}
+
+
+.prize-card-div{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.details-background-top{
     background-color: #3d4045;
+    color: white;
+}
+
+
+.competition-steps{
+    width:350px;
 }
