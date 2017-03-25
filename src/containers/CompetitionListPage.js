@@ -40,7 +40,7 @@ export default class TableExampleComplex extends React.Component {
 
 
   componentDidMount() {
-	const url = "http://localhost:3001/competitions";
+	const url = "https://stark-reaches-18759.herokuapp.com/competitions";
 	let env = this;
 	axios.get(url)
 	  .then(function(r) {

@@ -39,13 +39,13 @@ let competitions = [
 
 ];
 const PORT = 3001;
-const con = 'mongodb://localhost:27017/test-musik';
+const databaseConnection= process.env.MONGODB_URI || 'mongodb://localhost:27017/test-musik';
 
 const app = express();
 
 let queue = null;
 
-mongodb.MongoClient.connect(con, (err, db) => {
+mongodb.MongoClient.connect(databaseConnection, (err, db) => {
   queue = mongoDbQueue(db, 'contestv2');
 })
 app.use(function(req, res, next) {
